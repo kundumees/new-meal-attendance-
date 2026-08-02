@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kundu Mees Login</title>
+</head>
+
+<body>
+
+<h2>🏠 Kundu Mees Login</h2>
+
+<input id="email" placeholder="Email">
+
+<br><br>
+
+<input id="password" type="password" placeholder="Password">
+
+<br><br>
+
+<button id="login">
+Login
+</button>
+
+
+
+<script type="module">
+
+import {auth} from "./firebase.js";
+
+import {
+signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+
+
+document.getElementById("login").onclick=()=>{
+
+
+let email =
+document.getElementById("email").value;
+
+
+let password =
+document.getElementById("password").value;
+
+
+
+signInWithEmailAndPassword(
+auth,
+email,
+password
+)
+
+.then(()=>{
+
+alert("Login Successful ✅");
+
+location.href="attendance.html";
+
+})
+
+
+.catch((error)=>{
+
+alert(error.message);
+
+});
+
+
+};
+
+
+</script>
+
+
+</body>
+</html>
